@@ -1,0 +1,53 @@
+[
+    {
+      "id": 1,
+      "brand_name": "BMW",
+      "brand_logo": "https://i.ibb.co/rGNc8CX/bmw.png"
+    },
+    {
+      "id": 2,
+      "brand_name": "Ferrari",
+      "brand_logo": "https://i.ibb.co/KKwPP7j/ferrari.png"
+    },
+    {
+      "id": 3,
+      "brand_name": "Ford",
+      "brand_logo": "https://i.ibb.co/X3jSpjz/ford.png"
+    },
+    {
+      "id": 4,
+      "brand_name": "Honda",
+      "brand_logo": "https://i.ibb.co/fFZRXG0/hondai.png"
+    },
+    {
+      "id": 5,
+      "brand_name": "Tesla",
+      "brand_logo": "https://i.ibb.co/fx7qsgV/tesla.png"
+    },
+    {
+      "id": 6,
+      "brand_name": "Suzuki",
+      "brand_logo": "https://i.ibb.co/c8xDyV7/suzuki.png"
+    },
+    {
+      "id": 7,
+      "brand_name": "Toyota",
+      "brand_logo": "https://i.ibb.co/mhg0vvH/toyota.png"
+    },
+    {
+      "id": 8,
+      "brand_name": "Alfa Romeo",
+      "brand_logo": "https://i.ibb.co/WkkG8LX/alfa-roreo.png"
+    },
+    {
+      "id": 9,
+      "brand_name": "Mercedes-Benz",
+      "brand_logo": "https://i.ibb.co/gVstG74/5ec3e30358550c0004427741.png"
+    },
+    {
+      "id": 10,
+      "brand_name": "ThunderDrive",
+      "brand_logo": "https://i.ibb.co/KNxnwf9/Thunder-Drive.png"
+    }
+  ]
+  
