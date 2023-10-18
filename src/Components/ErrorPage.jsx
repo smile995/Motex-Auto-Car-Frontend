@@ -1,9 +1,11 @@
 
-
+import error from "../assets/error.jpg"
 const ErrorPage = () => {
     return (
-        <div>
-            page not found
+        <div className="flex justify-center items-center ">
+            <img src={error} alt="" />
+           
+
         </div>
     );
 };

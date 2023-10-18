@@ -3,7 +3,7 @@
 const AddProducts = () => {
     return (
         <div>
-            add your product here
+            add your product here!!
         </div>
     );
 };

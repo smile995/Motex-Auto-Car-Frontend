@@ -1,16 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+
 import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import ErrorPage from './Components/ErrorPage.jsx';
-import Root from './Components/Root.jsx';
-import HomePage from './Components/HomePage.jsx';
-import AddProducts from './Components/AddProducts.jsx';
+
 import MyCarts from './Components/MyCarts.jsx';
+import SignIn from './Components/SignIn.jsx';
+import SignUp from './Components/SignUp.jsx';
+import ErrorPage from './Components/ErrorPage';
+import HomePage from './Components/HomePage';
+import Root from './Components/Root';
+import AddProducts from './Components/AddProducts'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +32,14 @@ const router = createBrowserRouter([
       {
         path:"/myCarts",
         element:<MyCarts></MyCarts>
+      },
+      {
+        path:"/signin",
+        element:<SignIn></SignIn>
+      },
+      {
+        path:"/signup",
+        element:<SignUp></SignUp>
       }
     ],
   },
