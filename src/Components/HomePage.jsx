@@ -1,4 +1,4 @@
-import NavBar from "../NavBar";
+
 import banner from "../../public/bannerCar.jpg"
 
 
@@ -11,7 +11,7 @@ const HomePage = () => {
     };
     return (
         <div>
-            <NavBar></NavBar>
+            
             {/* banner part */}
             <div className="hero min-h-screen mt-10 " style={bannerStyle} >
                 <div className="hero-overlay bg-opacity-60"></div>
