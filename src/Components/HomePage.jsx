@@ -18,7 +18,7 @@ const HomePage = () => {
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-2xl">
                         <h1 className="mb-5 md:text-7xl text-4xl font-bold">Driving<span className="text-red-700">Dreams</span> <br /> One Car at a Time</h1>
-                        <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <p className="mb-5">This version emphasizes the transformation of dreams into reality through your car dealership, which may align better with your brand and message.</p>
                         <button className="btn btn-primary hover:bg-red-700">Get Started</button>
                     </div>
                 </div>
