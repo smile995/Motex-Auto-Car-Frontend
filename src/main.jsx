@@ -13,6 +13,7 @@ import ErrorPage from './Components/ErrorPage';
 import HomePage from './Components/HomePage';
 import Root from './Components/Root';
 import AddProducts from './Components/AddProducts'
+import { AuthContext } from './ContentAPI/AuthContext';
 
 const router = createBrowserRouter([
   {
@@ -25,26 +26,29 @@ const router = createBrowserRouter([
         element: <HomePage></HomePage>,
       },
       {
-        path:"/addProducts",
-        element:<AddProducts></AddProducts>
+        path: "/addProducts",
+        element: <AddProducts></AddProducts>
       },
       {
-        path:"/myCarts",
-        element:<MyCarts></MyCarts>
+        path: "/myCarts",
+        element: <MyCarts></MyCarts>
       },
       {
-        path:"/signIn",
-        element:<SignIn></SignIn>
+        path: "/signIn",
+        element: <SignIn></SignIn>
       },
       {
-        path:"/signup",
-        element:<SignUp></SignUp>
+        path: "/signup",
+        element: <SignUp></SignUp>
       }
     ],
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthContext>
+      <RouterProvider router={router} />
+    </AuthContext>
+
   </React.StrictMode>,
 )
