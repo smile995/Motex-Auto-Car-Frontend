@@ -6,9 +6,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-
+import SignIn from "./Components/SignIn"
 import MyCarts from './Components/MyCarts.jsx';
-import SignIn from './Components/SignIn.jsx';
 import SignUp from './Components/SignUp.jsx';
 import ErrorPage from './Components/ErrorPage';
 import HomePage from './Components/HomePage';
@@ -34,7 +33,7 @@ const router = createBrowserRouter([
         element:<MyCarts></MyCarts>
       },
       {
-        path:"/signin",
+        path:"/signIn",
         element:<SignIn></SignIn>
       },
       {
