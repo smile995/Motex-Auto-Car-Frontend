@@ -2,10 +2,13 @@ import { AiFillCar } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import banner from "../../public/bannerCar.jpg"
 import Why from "./Why";
+import { useLoaderData } from "react-router-dom";
+import ProductCard from "./ProductCard";
 
 
 
 const HomePage = () => {
+    const products= useLoaderData()
     const [brands, setBrands] = useState([]);
 
     useEffect(() => {
@@ -33,6 +36,14 @@ const HomePage = () => {
                         <button className="btn btn-primary hover:bg-red-600">Get Started</button>
                     </div>
                 </div>
+            </div>
+            <div className="mt-10">
+                <h1 className="text-3xl md:text-6xl font-bold text-center">Our Best Products:</h1>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                {
+                    products.map(product=><ProductCard key={product._id} product={product} ></ProductCard>)
+                }
             </div>
             <div className="mt-10 text-center">
                 <div className="flex gap-3 items-center justify-center">

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../public/ContentAPI/AuthContext";
 
 
 const SignUp = () => {
     const [error,setError]=useState(null);
+    const {createUser}=useContext(AuthContext)
     
     // const navigate = useNavigate();
     // const { createUser } = useContext(AuthContext)
@@ -13,10 +15,9 @@ const SignUp = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         const terms = e.target.checkbox.checked;
-        console.log(name, email,password);
+        // console.log(name, email,password);
         // reset the error and success message
-        setError('');
-        // setNewUser('');
+      
         // password validation
         if (password.length < 6) {
             setError('Password should be 6 charecters or longer');
@@ -34,16 +35,14 @@ const SignUp = () => {
             setError("You must use a spacial cherecter");
             return;
         }
-        // create user
-        // createUser(email, password)
-        //     .then(result => {
-        //         setNewUser('Create user successfully');
-        //         navigate("/")
-        //     })
-        //     .catch(error => {
-        //         setError("This email already used");
-        //     })
-
+        
+       createUser(email,password)
+       .then(result=>{
+        console.log(result.user);
+       })
+       .catch(error=>{
+        console.log(error);
+       })
         // console.log(name,Reg_email,Reg_password,terms);
     }
     return (

@@ -13,6 +13,8 @@ import ErrorPage from './Components/ErrorPage';
 import HomePage from './Components/HomePage';
 import Root from './Components/Root';
 import AddProducts from './Components/AddProducts'
+import Update from './Components/Update';
+import AuthProvider from '../public/ContentAPI/AuthContext';
 
 
 
@@ -26,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage></HomePage>,
+        loader: () => fetch('http://localhost:5000/addProducts')
       },
       {
         path: "/addProducts",
@@ -42,17 +45,18 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>
+      },
+      {
+        path: "/update",
+        element: <Update></Update>
       }
     ],
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    
+    <AuthProvider>
       <RouterProvider router={router} />
-   
-
-
-
+    </AuthProvider>
   </React.StrictMode>,
 )
