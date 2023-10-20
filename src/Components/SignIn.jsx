@@ -1,21 +1,43 @@
 import { Link } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
+import { getAuth, signInWithPopup, GoogleAuthProvider, applyActionCode } from "firebase/auth";
+import { useState } from "react";
+import auth from "../../public/FireBase/Firebase";
+
+
 
 
 const SignIn = () => {
+
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
+    const [users, setUsers]=useState(null)
+    
+    
+    // signin with google
+    const handleGoogleSignIn = () => {
+        const provider = new GoogleAuthProvider();
+       
+
+        signInWithPopup(auth,provider)
+        .then(result=>{
+            const user=result.user;
+            setUsers(user);
+            
+
+        })
+        .catch(error=>{
+            console.log("error",error.message);
+        })
+          
+    }
     const handleSubmit = (e) => {
-        
+
         e.preventDefault();
-        const Email=e.target.email.value;
-        const Password=e.target.password.value;
-        console.log(Email , Password);
-        // signIn(Email,Password)
-        // .then(result=>{
-        //     setSuccess('Login Successfully');
-        //     navigate(location?.state? location.state :"/")
-        // })
-        // .catch(error=>{
-        //     setError(error.message);
-        // })
+        const Email = e.target.email.value;
+        const Password = e.target.password.value;
+        console.log(Email, Password);
+
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -26,11 +48,11 @@ const SignIn = () => {
                 </div>
 
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    {/* <div className="mt-5 text-center bg-slate-200 mx-5 p-2 rounded-lg flex items-center justify-center hover:bg-pink-300">
+                    <div onClick={handleGoogleSignIn} className="mt-5 text-center bg-slate-200 mx-5 p-2 rounded-lg flex items-center justify-center hover:bg-pink-300">
                         <FaGoogle className="text-blue-600 text-2xl"></FaGoogle>
                         <h1 className="text-lg font-bold ml-3">Sign in With Google</h1>
 
-                    </div> */}
+                    </div>
 
                     <form className="card-body " onSubmit={handleSubmit} >
                         <div className="form-control">
@@ -55,12 +77,12 @@ const SignIn = () => {
                             <p>Are you new here? please <Link className="text-blue-800 font-bold text-lg" to={'/signup'}>SignUp</Link></p>
                         </div>
                         <div className="text-center">
-                            {/* {
+                            {
                                 success && <p className="text-lg font-semibold text-green-700">{success}</p>
                             }
                             {
                                 error && <p className="text-lg font-semibold text-red-700">{error}</p>
-                            } */}
+                            }
                         </div>
                     </form>
                 </div>

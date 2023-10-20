@@ -1,6 +1,7 @@
 import { AiFillCar } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import banner from "../../public/bannerCar.jpg"
+import Why from "./Why";
 
 
 
@@ -51,6 +52,9 @@ const HomePage = () => {
                         </div>)
                     }
                 </div>
+            </div>
+            <div>
+                <Why></Why>
             </div>
 
         </div>

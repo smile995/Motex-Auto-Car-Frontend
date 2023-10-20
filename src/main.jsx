@@ -13,7 +13,9 @@ import ErrorPage from './Components/ErrorPage';
 import HomePage from './Components/HomePage';
 import Root from './Components/Root';
 import AddProducts from './Components/AddProducts'
-import { AuthContext } from './ContentAPI/AuthContext';
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -46,9 +48,11 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthContext>
+    
       <RouterProvider router={router} />
-    </AuthContext>
+   
+
+
 
   </React.StrictMode>,
 )
