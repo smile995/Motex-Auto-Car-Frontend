@@ -1,9 +1,19 @@
 import {  Link, NavLink } from "react-router-dom";
 // import logo from "../public/logo.png"
 import logo from "../../public/logo.png"
+import { useContext } from "react";
+import { AuthContext } from "../../public/ContentAPI/AuthContext";
 
 const NavBar = () => {
-
+    const {users,logOut}=useContext(AuthContext)
+    const hanndleSignOut=()=>{
+        logOut()
+        // logOut.then(() => {
+        //     // Sign-out successful.
+        //   }).catch((error) => {
+        //     console.log(error);
+        //   });
+    }
     const nabManu = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li><NavLink to={"/addProducts"}>Add Product</NavLink></li>
@@ -36,17 +46,15 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/signIn'>
-                <button >sign in</button>
-                </Link>
-                {/* {
-                    user ?
-                        <button className="font-semibold btn btn-secondary">Log Out</button>
+               
+                {
+                    users ?
+                        <button onClick={hanndleSignOut} className="font-semibold btn btn-secondary">SignOut</button>
                         :
-                        <Link to={'/login'}>
-                            <button className="font-semibold btn btn-secondary">Login</button>
+                        <Link to={'/signIn'}>
+                            <button className="font-semibold btn btn-secondary">SignIn</button>
                         </Link>
-                } */}
+                }
 
             </div>
         </div>

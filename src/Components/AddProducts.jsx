@@ -12,7 +12,7 @@ const AddProducts = () => {
         const description = form.description.value;
         const rating = form.rating.value;
         const addProduct = { image, name, brandName, type, price, description, rating };
-        console.log(addProduct);
+        
         // newproduct adding request
         fetch('http://localhost:5000/addProducts', {
             method: 'POST',

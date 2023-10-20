@@ -5,7 +5,7 @@ import { AuthContext } from "../../public/ContentAPI/AuthContext";
 
 const SignUp = () => {
     const [error,setError]=useState(null);
-    const {createUser}=useContext(AuthContext)
+    const {createUser, setUsers}=useContext(AuthContext)
     
     // const navigate = useNavigate();
     // const { createUser } = useContext(AuthContext)
@@ -35,10 +35,11 @@ const SignUp = () => {
             setError("You must use a spacial cherecter");
             return;
         }
-        
+
        createUser(email,password)
        .then(result=>{
         console.log(result.user);
+        setUsers(true)
        })
        .catch(error=>{
         console.log(error);

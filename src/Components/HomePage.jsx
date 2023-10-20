@@ -1,5 +1,5 @@
 import { AiFillCar } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import banner from "../../public/bannerCar.jpg"
 import Why from "./Why";
 import { useLoaderData } from "react-router-dom";
@@ -8,6 +8,7 @@ import ProductCard from "./ProductCard";
 
 
 const HomePage = () => {
+  
     const products= useLoaderData()
     const [brands, setBrands] = useState([]);
 
