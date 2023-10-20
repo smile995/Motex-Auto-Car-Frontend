@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { getAuth, signInWithPopup, GoogleAuthProvider, applyActionCode } from "firebase/auth";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import auth from "../../public/FireBase/Firebase";
+import { AuthContext } from "../../public/ContentAPI/AuthContext";
 
 
 
 
 const SignIn = () => {
+    const {signIn}=useContext(AuthContext)
 
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
@@ -17,26 +19,33 @@ const SignIn = () => {
     // signin with google
     const handleGoogleSignIn = () => {
         const provider = new GoogleAuthProvider();
-       
-
-        signInWithPopup(auth,provider)
+       signInWithPopup(auth,provider)
         .then(result=>{
             const user=result.user;
             setUsers(user);
-            
-
-        })
+            })
         .catch(error=>{
             console.log("error",error.message);
         })
           
     }
+
+
+
     const handleSubmit = (e) => {
 
         e.preventDefault();
         const Email = e.target.email.value;
         const Password = e.target.password.value;
-        console.log(Email, Password);
+        signIn(Email,Password)
+        .then(result=>{
+            console.log(result.user);
+        })
+        .catch(error=>{
+            console.log(error.message);
+        })
+
+        
 
     }
     return (
