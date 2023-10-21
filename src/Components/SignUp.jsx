@@ -4,9 +4,10 @@ import { AuthContext } from "../../public/ContentAPI/AuthContext";
 
 
 const SignUp = () => {
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState(null)
     const { createUser, setUsers } = useContext(AuthContext)
-    const navigate = useNavigate()
+    const navigate = useNavigate("/")
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -36,11 +37,13 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 setUsers(result.user);
+                setSuccess('User SignUp Successfully')
                 e.target.reset()
-                navigate('/')
+                navigate()
+                
             })
             .catch(error => {
-                console.log(error);
+                setError(error);
             })
         // console.log(name,Reg_email,Reg_password,terms);
     }
@@ -85,11 +88,12 @@ const SignUp = () => {
                             <p>Already have an account? please <Link className="text-blue-800 font-bold text-lg" to={'/signin'}>SignIn</Link></p>
                         </div>
                         <div className="text-center">
-                            {/* {
-                                newUser && <p className="text-lg font-semibold text-green-700">{newUser}</p>
-                            } */}
+                           
                             {
-                                error && <p className="text-lg font-semibold text-red-700">{error}</p>
+                                success && <p className="text-lg font-semibold text-green-700">{success}</p>
+                            }
+                            {
+                                error && <p className="text-lg font-semibold text-red-700">{error.error}</p>
                             }
                         </div>
                     </form>
