@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage></HomePage>,
-        loader: () => fetch('http://localhost:5000/addProducts')
+        loader: () => fetch('https://brands-fup80o4bs-amir-hamza-ismails-projects.vercel.app/addProducts')
       },
       {
         path: "/addProducts",
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: "/myCarts",
         element: <PrivateRoute><MyCarts></MyCarts></PrivateRoute>,
-        loader:()=>fetch(' http://localhost:5000/addProducts')
+        loader: () => fetch(' https://brands-fup80o4bs-amir-hamza-ismails-projects.vercel.app/addProducts')
       },
       {
         path: "/signIn",

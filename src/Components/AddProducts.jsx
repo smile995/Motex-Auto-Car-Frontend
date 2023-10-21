@@ -14,7 +14,7 @@ const AddProducts = () => {
         const addProduct = { image, name, brandName, type, price, description, rating };
         
         // newproduct adding request
-        fetch('http://localhost:5000/addProducts', {
+        fetch('https://brands-fup80o4bs-amir-hamza-ismails-projects.vercel.app/addProducts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

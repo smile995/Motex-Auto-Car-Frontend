@@ -1,5 +1,5 @@
 import { AiFillCar } from "react-icons/ai";
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import banner from "../../public/bannerCar.jpg"
 import Why from "./Why";
 import { useLoaderData } from "react-router-dom";
