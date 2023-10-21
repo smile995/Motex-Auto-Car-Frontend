@@ -1,23 +1,20 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../public/ContentAPI/AuthContext";
 
 
 const SignUp = () => {
-    const [error,setError]=useState(null);
-    const {createUser, setUsers}=useContext(AuthContext)
-    
-    // const navigate = useNavigate();
-    // const { createUser } = useContext(AuthContext)
+    const [error, setError] = useState(null);
+    const { createUser, setUsers } = useContext(AuthContext)
+    const navigate = useNavigate()
+
     const handleRegister = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const terms = e.target.checkbox.checked;
-        // console.log(name, email,password);
-        // reset the error and success message
-      
+
         // password validation
         if (password.length < 6) {
             setError('Password should be 6 charecters or longer');
@@ -36,21 +33,22 @@ const SignUp = () => {
             return;
         }
 
-       createUser(email,password)
-       .then(result=>{
-        console.log(result.user);
-        setUsers(true)
-       })
-       .catch(error=>{
-        console.log(error);
-       })
+        createUser(email, password)
+            .then(result => {
+                setUsers(result.user);
+                e.target.reset()
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error);
+            })
         // console.log(name,Reg_email,Reg_password,terms);
     }
     return (
         <div className="hero min-h-screen bg-base-200 mt-10">
             <div className="hero-content flex-col ">
                 <div className="text-center ">
-                    <h1 className="text-5xl font-bold">Please Register</h1>
+                    <h1 className="text-5xl font-bold">SignUp Form</h1>
 
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

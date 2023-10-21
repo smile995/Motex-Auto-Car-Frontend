@@ -1,12 +1,12 @@
-import {  Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // import logo from "../public/logo.png"
 import logo from "../../public/logo.png"
 import { useContext } from "react";
 import { AuthContext } from "../../public/ContentAPI/AuthContext";
 
 const NavBar = () => {
-    const {users,logOut}=useContext(AuthContext)
-    const hanndleSignOut=()=>{
+    const { users, logOut } = useContext(AuthContext)
+    const hanndleSignOut = () => {
         logOut()
         // logOut.then(() => {
         //     // Sign-out successful.
@@ -46,10 +46,14 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-               
+
                 {
                     users ?
-                        <button onClick={hanndleSignOut} className="font-semibold btn btn-secondary">SignOut</button>
+                        <div className="flex gap-3 items-center">
+                            <p className="hidden md:contents">{users.email}</p>
+                            <button onClick={hanndleSignOut} className="font-semibold btn btn-secondary">SignOut</button>
+                        </div>
+
                         :
                         <Link to={'/signIn'}>
                             <button className="font-semibold btn btn-secondary">SignIn</button>

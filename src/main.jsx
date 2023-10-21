@@ -15,6 +15,7 @@ import Root from './Components/Root';
 import AddProducts from './Components/AddProducts'
 import Update from './Components/Update';
 import AuthProvider from '../public/ContentAPI/AuthContext';
+import PrivateRoute from './Components/PrivateRoute';
 
 
 
@@ -32,11 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProducts",
-        element: <AddProducts></AddProducts>
+        element: <PrivateRoute><AddProducts></AddProducts></PrivateRoute>
       },
       {
         path: "/myCarts",
-        element: <MyCarts></MyCarts>
+        element: <PrivateRoute><MyCarts></MyCarts></PrivateRoute>
       },
       {
         path: "/signIn",
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/update",
-        element: <Update></Update>
+        element: <PrivateRoute><Update></Update></PrivateRoute>
       }
     ],
   },

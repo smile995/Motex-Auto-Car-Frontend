@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-import { getAuth, signInWithPopup, GoogleAuthProvider, applyActionCode } from "firebase/auth";
+import {  signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import auth from "../../public/FireBase/Firebase";
 import { AuthContext } from "../../public/ContentAPI/AuthContext";
@@ -10,7 +10,7 @@ import { AuthContext } from "../../public/ContentAPI/AuthContext";
 
 const SignIn = () => {
     const {signIn}=useContext(AuthContext)
-
+    const navigate= useNavigate()
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const [users, setUsers]=useState(null)
@@ -23,6 +23,7 @@ const SignIn = () => {
         .then(result=>{
             const user=result.user;
             setUsers(user);
+            navigate('/')
             })
         .catch(error=>{
             console.log("error",error.message);
@@ -39,7 +40,9 @@ const SignIn = () => {
         const Password = e.target.password.value;
         signIn(Email,Password)
         .then(result=>{
-            console.log(result.user);
+            setUsers(result.user);
+            e.target.reset();
+            navigate('/')
         })
         .catch(error=>{
             console.log(error.message);
