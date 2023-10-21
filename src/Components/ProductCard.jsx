@@ -2,7 +2,7 @@
 
 const ProductCard = ({ product }) => {
     console.log(product);
-    const { image, name, description,price } = product
+    const { image, name, description,price,_id } = product
     // const handleDetails=(_id)=>{
 
     // }
@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
                 </div>
                 <p>{description}</p>
                 <div className="card-actions ">
-                    <button onClick={(()=>handleDetails(_id))} className="btn btn-primary w-full">Details</button>
+                    <button className="btn btn-primary w-full">Details</button>
                 </div>
             </div>
         </div>
