@@ -13,7 +13,7 @@ const HomePage = () => {
     const [brands, setBrands] = useState([]);
 
     useEffect(() => {
-        fetch('/public/Brand.json')
+        fetch('./public/Brand.json')
             .then(res => res.json())
             .then(data => setBrands(data))
     }, []);
